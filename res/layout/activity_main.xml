@@ -1,0 +1,102 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <ListView
+        android:id="@+id/expense_list"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/mainLayout"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true" >
+    </ListView>
+
+    <LinearLayout
+        android:id="@+id/mainLayout"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/submissionLayout"
+        android:orientation="horizontal"
+        android:padding="5dp" >
+
+        <LinearLayout
+            android:id="@+id/LinearLayout2"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.8"
+            android:orientation="vertical"
+            android:padding="5dp" >
+
+            <TextView
+                android:id="@+id/month"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Month" />
+
+            <TextView
+                android:id="@+id/total"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingLeft="10dp"
+                android:text="Large Text"
+                android:textAppearance="?android:attr/textAppearanceLarge" />
+        </LinearLayout>
+
+        <ImageButton
+            android:id="@+id/PreviousMonth1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.1"
+            android:text="prev"
+            android:src="@drawable/ic_action_previous_item" />
+
+        <ImageButton
+            android:id="@+id/NextMonth"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.1"
+            android:text="next"
+            android:src="@drawable/ic_action_next_item" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/submissionLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:baselineAligned="true"
+        android:orientation="horizontal"
+        android:padding="5dp" >
+
+        <ImageButton
+            android:id="@+id/settings"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.01"
+            android:src="@drawable/ic_action_settings" />
+        
+        <EditText
+            android:id="@+id/e_field"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.90"
+            android:ems="10"
+            android:hint="@string/expense_field"
+            android:singleLine="true" >
+
+        </EditText>
+
+        <ImageButton
+            android:id="@+id/submit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:adjustViewBounds="true"
+            android:src="@drawable/ic_action_new"
+            android:focusable="false"
+            android:text="@string/Submit" />
+    </LinearLayout>
+
+</RelativeLayout>

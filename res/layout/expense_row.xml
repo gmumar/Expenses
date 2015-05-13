@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal"
+    android:padding="5dp" >
+
+    <com.example.please.MyImageView
+        android:id="@+id/imageView1"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:orientation="vertical" >
+    </com.example.please.MyImageView>
+"
+
+    <TextView
+        android:id="@+id/row_item"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_toRightOf="@+id/imageView1"
+        android:paddingLeft="10dp"
+        android:paddingTop="5dp"
+        android:text="TextView" />
+
+    <TextView
+        android:id="@+id/row_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/row_edit"
+        android:text="TextView" />
+
+    <TextView
+        android:id="@+id/row_price"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/row_item"
+        android:layout_below="@+id/row_item"
+        android:paddingLeft="15dp"
+        android:text="TextView" />
+
+    <ImageButton
+        android:id="@+id/row_del"
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:padding="5dp"
+        android:scaleType="fitCenter"
+        android:layout_above="@+id/row_date"
+        android:layout_alignParentRight="true"
+        android:src="@drawable/ic_action_remove" />
+
+    <ImageButton
+        android:id="@+id/row_edit"
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_alignTop="@+id/row_item"
+        android:layout_toLeftOf="@+id/row_del" 
+        android:padding="5dp"
+        android:scaleType="fitCenter"
+        android:src="@drawable/ic_action_edit" />
+
+</RelativeLayout>

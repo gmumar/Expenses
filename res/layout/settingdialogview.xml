@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" 
+    android:padding="10pt"
+    >
+
+    <Button
+        android:id="@+id/DBXSignIn"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="DropBox Sign In" />
+
+    <Button
+        android:id="@+id/DBXUpload"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="Upload DB" />
+
+    <Button
+        android:id="@+id/DBXDownLoad"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="Download DB" />
+    
+        <Button
+        android:id="@+id/DBXClear"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="Clean the cloud" />
+
+</LinearLayout>
