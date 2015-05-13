@@ -164,7 +164,7 @@ public class DropboxManager {
 					// On the cloud but missing in local db
 					//Log.i("BDX null", expenseDb.getString());
 					if(dbInstance.findById(tempExpense.getId())==null)
-						dbInstance.createExpense(tempExpense);
+						dbInstance.createExpense(tempExpense.getString(),tempExpense.getDate(),tempExpense.getReceipt());
 				} else {
 					Log.i("dbx", expenseDb.getString());
 					if (expenseDb.getState() == DBhelper.states.deleted
@@ -189,7 +189,7 @@ public class DropboxManager {
 		field.set(DBhelper.DATE, e.getDate());
 		field.set(DBhelper.LOCATION_X, e.getLoc_x());
 		field.set(DBhelper.LOCATION_Y, e.getLoc_y());
-		field.set(DBhelper.COLUMN_ID, e.getId());
+		//field.set(DBhelper.COLUMN_ID, e.getId());
 
 		return field;
 	}
@@ -201,7 +201,7 @@ public class DropboxManager {
 		e.setString(f.getString(DBhelper.INPUT_STRING));
 		e.setLoc_x(f.getDouble(DBhelper.LOCATION_X));
 		e.setLoc_y(f.getDouble(DBhelper.LOCATION_Y));
-		e.setId(f.getLong(DBhelper.COLUMN_ID));
+		//e.setId(f.getLong(DBhelper.COLUMN_ID));
 
 		return e;
 	}

@@ -96,25 +96,29 @@ public class DataSource {
 		return newExpense;
 	}
 
-	public expense createExpense(expense e) {
+	public expense createExpense(expense e_here) {
+		// This create Expense will not set the raw data string
+		// so you will not see the price and name of the item
+		// being added to the db, use the createExpense above this
+
 		ContentValues values = new ContentValues();
-		values.put(DBhelper.INPUT_STRING, e.getItem());
-		values.put(DBhelper.DATE, e.getDate());
-		values.put(DBhelper.RECEIPT, e.getReceipt());
-		values.put(DBhelper.LOCATION_X, e.getLoc_x());
-		values.put(DBhelper.LOCATION_Y, e.getLoc_y());
+		values.put(DBhelper.INPUT_STRING, e_here.getItem());
+		values.put(DBhelper.DATE, e_here.getDate());
+		values.put(DBhelper.RECEIPT, e_here.getReceipt());
+		values.put(DBhelper.LOCATION_X, e_here.getLoc_x());
+		values.put(DBhelper.LOCATION_Y, e_here.getLoc_y());
 		values.put(DBhelper.STATE, DBhelper.states.clean.ordinal());
 
+		
 		long insertId = database.insert(DBhelper.EXPENSES_TABLE, null, values);
 		Cursor cursor = database.query(DBhelper.EXPENSES_TABLE, allColumns,
 				DBhelper.COLUMN_ID + " = " + insertId, null, null, null, null);
 		cursor.moveToFirst();
-		Log.i("Inserted Curser ", Integer.toString(cursor.getColumnCount()));
-
+		
 		expense newExpense = cursorToExpense(cursor);
 		cursor.close();
 
-		Log.i(MainActivity.TAG, "expense created " + Long.toString(insertId));
+		Log.i( "expense created ", newExpense.toString());
 		return newExpense;
 	}
 	

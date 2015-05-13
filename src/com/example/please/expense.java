@@ -15,6 +15,24 @@ public class expense {
 	private double loc_y;
 	private int state = 0;
 
+	
+	
+	public expense(expense e) {
+		super();
+		this.date = e.getDate();
+		this.string = e.getString();
+		this.price = e.getPrice();
+		this.receipt = e.getReceipt();
+		this.id = e.getId();
+		this.loc_x = e.getLoc_x();
+		this.loc_y = e.getLoc_y();
+		this.state = e.getState();
+	}
+
+	public expense() {
+		super();
+	}
+
 	public int getState() {
 		return state;
 	}
@@ -144,7 +162,7 @@ public class expense {
 
 	@Override
 	public String toString() {
-		return (this.getItem() + " " + Float.toString(this.price));
+		return (this.getItem() + " " + getPrice()+ " " +  getDate());
 	}
 
 	public double getLoc_x() {

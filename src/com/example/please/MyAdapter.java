@@ -75,32 +75,37 @@ public class MyAdapter extends ArrayAdapter<expense> {
 				final expense exp = MainActivity.all_expenses.get(position);
 				final EditText repeatTxt;
 
-				Dialog rowOptions = new Dialog(c);
+				final Dialog rowOptions = new Dialog(c);
 				rowOptions.setContentView(R.layout.row_options_dialog);
 				repeatTxt = (EditText) rowOptions.findViewById(R.id.RepeatText);
 
 				rowOptions.findViewById(R.id.RepeatButton).setOnClickListener(
 						new OnClickListener() {
 							Integer count = 0;
-
+							expense locale = new expense(exp);
+							
 							@Override
 							public void onClick(View v) {
 								if (!repeatTxt.getText().toString().isEmpty()) {
+									
 									count = Integer.parseInt(repeatTxt
 											.getText().toString());
-									for (int i = 1; i < count; i++) {
-										exp.setDate(exp.addMonthsToDate(i));
-										MainActivity.dbs.createExpenseWithDate(
-												exp, exp.addMonthsToDate(i));
+									for (int i = 1; i <= count; i++) {
+										locale.setDate(exp.addMonthsToDate(i));
+										locale.setString(exp.getString());
+										
+										MainActivity.enter_into_db(locale);
 									}
-
+									rowOptions.dismiss();
 								} else {
 									Toast.makeText(c,
 											"Enter Number of months to repeat",
 											Toast.LENGTH_SHORT).show();
 								}
+								
 
 							}
+							
 						});
 
 				rowOptions.show();

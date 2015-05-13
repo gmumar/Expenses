@@ -261,6 +261,10 @@ public class MainActivity extends Activity {
 		//init_list();
 	}
 	
+	static public void enter_into_db(expense nonlocal_e){
+		dbs.createExpense(nonlocal_e.getString(),nonlocal_e.getDate(),nonlocal_e.getReceipt());
+	}
+	
 	
 	public static String readExpenseField() throws EmptyInputException  {
 		String expense_item_price = e_field.getText().toString();
